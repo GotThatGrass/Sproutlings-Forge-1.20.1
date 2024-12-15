@@ -1,6 +1,8 @@
 package net.danie.sproutlings;
 
 import com.mojang.logging.LogUtils;
+import net.danie.sproutlings.block.ModBlocks;
+import net.danie.sproutlings.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -23,6 +25,9 @@ public class Sproutlings {
 
     public Sproutlings() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
